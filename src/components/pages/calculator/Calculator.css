@@ -1,0 +1,61 @@
+.Calculator {
+   --main-bg-color: hsl(222, 26%, 31%);
+   --toggle-bg-color: hsl(223, 31%, 20%);
+   --screen-bg-color: hsl(224, 36%, 15%);
+
+   --key-bg-color: hsl(225, 21%, 49%);
+   --key-shadow-color: hsl(222, 26%, 31%);
+
+   --key-sum-color: hsl(6, 63%, 50%);
+   --key-sum-shadow-color: hsl(6, 70%, 34%);
+
+   --basic-key-color: hsl(30, 25%, 89%);
+   --basic-key-shadow-color: hsl(28, 16%, 65%);
+
+   --text-dark-color: hsl(221, 14%, 31%);
+   --text-bright-color: hsl(0, 0%, 100%);
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100%;
+   background-color: var(--main-bg-color);
+}
+
+.Body {
+   align-self: center;
+   justify-self: center;
+   color: var(--text-bright-color);
+
+   min-width: 400px;
+   width: 30%;
+}
+
+.Header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   height: 80px;
+}
+
+.ThemeButton {
+   font-size: large;
+   height: 40px;
+   border: none;
+   border-radius: 8px;
+   background-color: var(--basic-key-color);
+   box-shadow: 0 5px var(--basic-key-shadow-color);
+}
+
+.Display {
+   width: 100%;
+   background-color: var(--screen-bg-color);
+   color: var(--text-bright-color);
+   border: none;
+   height: 80px;
+   border-radius: 8px;
+}
+
+.Display:focus {
+   outline: none;
+}
