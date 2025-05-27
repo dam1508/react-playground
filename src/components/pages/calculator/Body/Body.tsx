@@ -6,7 +6,11 @@ import Display from "./Display/Display";
 const Body = () => {
    return (
       <div className="Body">
-         <form>
+         <form
+            onSubmit={e => {
+               e.preventDefault();
+            }}
+         >
             <Header />
             <Display />
          </form>
