@@ -50,12 +50,35 @@
 .Display {
    width: 100%;
    background-color: var(--screen-bg-color);
-   color: var(--text-bright-color);
+   color: var(--text-dark-color);
+
    border: none;
    height: 80px;
    border-radius: 8px;
+
+   text-align: right;
+   font-family: "League Spartan", sans-serif;
+   font-size: 40px;
+   font-weight: 600;
+   text-wrap: none;
+
+   overflow: hidden;
+}
+
+.Display[data-theme="aquatic"] {
+   color: var(--text-bright-color);
 }
 
 .Display:focus {
    outline: none;
+}
+
+.Keyboard {
+   margin-top: 20px;
+   padding: 10px;
+   border-radius: 8px;
+   background-color: var(--toggle-bg-color);
+   display: grid;
+   grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+   grid-gap: 5px;
 }
