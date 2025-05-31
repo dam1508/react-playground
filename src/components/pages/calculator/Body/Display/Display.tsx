@@ -9,13 +9,21 @@ const Display = () => {
    } = context;
 
    return (
-      <input
-         readOnly
-         value={sentence}
-         name="equation"
-         className="Display"
-         data-theme={theme}
-      />
+      <>
+         <input
+            readOnly
+            value={sentence}
+            name="equation"
+            hidden
+         />
+
+         <div
+            className="Display"
+            data-theme={theme}
+         >
+            {sentence}
+         </div>
+      </>
    );
 };
 

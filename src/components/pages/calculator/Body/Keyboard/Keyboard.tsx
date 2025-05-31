@@ -1,5 +1,6 @@
 import { useCalculatorContext } from "../../Calculator";
 import "../../Calculator.css";
+import Button from "./Button/Button";
 import { Key, keys } from "./keys";
 
 const Keyboard = () => {
@@ -7,9 +8,9 @@ const Keyboard = () => {
 
    const { dispatchEquation } = context;
 
-   const createDispatch = <T extends Key["type"]>(key: Key) => {
+   const createDispatch = (key: Key) => {
       dispatchEquation({
-         type: "input",
+         type: key.type,
          value: key.value,
       });
    };
@@ -18,12 +19,11 @@ const Keyboard = () => {
       <div className="Keyboard">
          {keys.map(key => {
             return (
-               <button
+               <Button
                   key={key.value}
-                  onClick={() => createDispatch(key)}
-               >
-                  {key.value}
-               </button>
+                  calculatorKey={key}
+                  createDispatch={createDispatch}
+               />
             );
          })}
       </div>
