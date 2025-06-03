@@ -1,8 +1,10 @@
-import { Route, Routes } from "react-router-dom";
+import { NavLink, Route, Routes } from "react-router-dom";
 import "./Navigation.css";
 import Playground from "../pages/playground/Playground";
 import Calculator from "../pages/calculator/Calculator";
 import Canvas from "../canvas/Canvas";
+import Countries from "../pages/countries";
+import { Suspense } from "react";
 
 export const Navigation = () => {
    type Route = {
@@ -22,6 +24,11 @@ export const Navigation = () => {
          path: "/calculator",
          node: <Calculator />,
       },
+      countries: {
+         name: "Countries",
+         path: "/countries",
+         node: <Countries />,
+      },
    };
 
    return (
@@ -30,28 +37,42 @@ export const Navigation = () => {
             {Object.keys(routes).map(routeName => {
                const { name, path } = routes[routeName];
                return (
-                  <a
-                     href={path}
+                  <NavLink
+                     to={path}
                      key={name}
                   >
                      {name}
-                  </a>
+                  </NavLink>
                );
             })}
          </nav>
          <Canvas>
-            <Routes>
-               {Object.keys(routes).map(routeName => {
-                  const { path, node } = routes[routeName];
-                  return (
-                     <Route
-                        path={path}
-                        element={node}
-                     />
-                  );
-               })}
-            </Routes>
+            <Suspense fallback={<h1>Waiting</h1>}>
+               <Routes>
+                  {Object.keys(routes).map(routeName => {
+                     const { path, node } = routes[routeName];
+                     return (
+                        <Route
+                           path={path}
+                           element={node}
+                        />
+                     );
+                  })}
+               </Routes>
+            </Suspense>
          </Canvas>
       </>
    );
 };
+
+// function Layout() {
+//    let location = useLocation();
+//    return (
+//       <Suspense
+//          fallback={<LoadModuleScreen />}
+//          key={location.key}
+//       >
+//          <Outlet />
+//       </Suspense>
+//    );
+// }

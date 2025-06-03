@@ -133,6 +133,7 @@
    box-shadow: 0 5px var(--key-shadow-color);
 
    grid-column: 1/3;
+   width: inherit;
 }
 
 .CalculatorKey.submit {
