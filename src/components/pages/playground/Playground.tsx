@@ -1,11 +1,15 @@
 import { useState } from "react";
 import "./Playground.css";
+import { redirect, useLocation, useNavigate } from "react-router-dom";
 
 const Playground = () => {
    const [, setUpdate] = useState(1);
    const [text, setText] = useState<string>("");
+   const location = useLocation();
+   const navigate = useNavigate();
    const test = "abc+";
 
+   console.log(location.pathname);
    const handleType = (event: React.ChangeEvent<HTMLInputElement>) => {
       let newValue = event.target.value.replace(/\D/g, "");
       let newValueArray = newValue.split("");
@@ -35,6 +39,13 @@ const Playground = () => {
             className="reset"
          >
             Reset
+         </button>
+         <button
+            onClick={() =>
+               navigate(location.pathname + "/calculator", { replace: false })
+            }
+         >
+            Calc
          </button>
       </div>
    );

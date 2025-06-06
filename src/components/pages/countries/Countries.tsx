@@ -1,12 +1,12 @@
-import { Suspense, use } from "react";
-import fetchCountry from "./api";
-import CountryCard from "./CountryCard";
+import { Suspense } from "react";
+import fetchCountries from "./api";
+import CountriesList from "./CountriesList";
 
 export const Countries = () => {
-   const countryPromise = fetchCountry();
+   const countriesPromise = fetchCountries();
    return (
-      <Suspense fallback={<h1>LOL</h1>}>
-         <CountryCard countryPromise={countryPromise} />
+      <Suspense fallback={<h1>Loading...</h1>}>
+         <CountriesList countriesPromise={countriesPromise} />
       </Suspense>
    );
 };

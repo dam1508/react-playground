@@ -7,7 +7,7 @@ export const fetchCountries = async (): Promise<CountryInfo[]> => {
 
    console.log(url.toString());
 
-   let poland = new Promise(resolve => setTimeout(resolve, 10000)).then(
+   let poland = new Promise(resolve => setTimeout(resolve, 2000)).then(
       async () =>
          fetch(url)
             .then(response => {
