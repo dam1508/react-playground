@@ -50,6 +50,11 @@ export const routes: Array<Route> = [
             path: "/countries/:name",
             node: <h1>COUNTRY</h1>,
          },
+         {
+            name: "Digital Art",
+            path: "/digital",
+            node: <h1>Digital art</h1>,
+         },
       ],
    },
 ];

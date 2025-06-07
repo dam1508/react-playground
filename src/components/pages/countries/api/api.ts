@@ -5,9 +5,7 @@ export const fetchCountries = async (): Promise<CountryInfo[]> => {
 
    url.searchParams.set("fields", countryParams.join(","));
 
-   console.log(url.toString());
-
-   let poland = new Promise(resolve => setTimeout(resolve, 2000)).then(
+   let countries = new Promise(resolve => setTimeout(resolve, 2000)).then(
       async () =>
          fetch(url)
             .then(response => {
@@ -18,5 +16,5 @@ export const fetchCountries = async (): Promise<CountryInfo[]> => {
             })
    );
 
-   return poland;
+   return countries;
 };
