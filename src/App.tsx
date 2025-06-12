@@ -10,6 +10,7 @@ import Playground from "./components/pages/playground/Playground";
 import Calculator from "./components/pages/calculator/Calculator";
 import Countries from "./components/pages/countries";
 import Canvas from "./components/canvas/Canvas";
+import CountryPage from "./components/pages/countries/CountryPage";
 
 type Route = {
    name?: string;
@@ -48,7 +49,7 @@ export const routes: Array<Route> = [
          },
          {
             path: "/countries/:name",
-            node: <h1>COUNTRY</h1>,
+            node: <CountryPage />,
          },
          {
             name: "Digital Art",

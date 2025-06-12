@@ -6,7 +6,7 @@ import { Box, Grid, Paper } from "@mui/material";
 import { NavLink, useLocation } from "react-router-dom";
 
 export const CountryCard = ({ country }: { country: CountryInfo }) => {
-   const { name, flags, capital } = country;
+   const { name, flags } = country;
    const path = useLocation();
 
    return (
@@ -49,10 +49,7 @@ export const CountryCard = ({ country }: { country: CountryInfo }) => {
                   flagAlt={flags.alt}
                   isNepal={name.common === "Nepal"}
                />
-               <Info
-                  name={name}
-                  capital={capital}
-               ></Info>
+               <Info {...country}></Info>
             </Box>
          </Paper>
       </Grid>
